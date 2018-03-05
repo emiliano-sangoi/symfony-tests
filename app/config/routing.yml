@@ -1,3 +1,7 @@
+validaciones:
+    resource: "@ValidacionesBundle/Resources/config/routing.yml"
+    prefix:   /validaciones
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

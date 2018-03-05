@@ -1,0 +1,13 @@
+validaciones_homepage:
+    path:     /
+    defaults: { _controller: ValidacionesBundle:Default:index }
+
+validaciones_caso1:
+    path:     /caso1
+    defaults: { _controller: ValidacionesBundle:Default:caso1 }
+    
+validaciones_caso1_sol1:
+    path:     /caso1/sol1
+    defaults: { _controller: ValidacionesBundle:Default:caso1Sol1 }
+    
+    

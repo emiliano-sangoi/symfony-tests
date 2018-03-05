@@ -1,0 +1,20 @@
+{% extends 'base-seccion.html.twig' %}
+
+{% block navbar %}
+    <header>
+        <a href="{{ path('validaciones_homepage') }}" class="btn btn-warning">Volver</a>
+    </header>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="container">
+        {{ form(form) }}
+
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base-seccion.html.twig' %}
+
+
+{% block body %}
+
+    <div class="container">
+        <h2>Validaciones</h2>
+
+        <div class="panel panel-default">
+            <div class="panel-heading text-uppercase">Validaciones con Constraints Personalizadas</div>
+            <div class="panel-body lead">
+                <strong>Situaci&oacute;n:</strong>
+                <p>Se dispone de un objeto Persona, que no es una entidad de Doctrine y se necesita realizar distintas validaciones (existentes y personalizadas) sobre el objeto en funcion de los parametros ingresados en el formulario.</p>
+                <p>Las constraints no pueden agregarse a la entidad Persona ya que estas son una dependencia externa que varia.</p>    
+                <p>En algunas validaciones se necesita acceder a la base de datos u a otros servicios.</p>    
+
+
+                <div class="well well-sm">
+                    <p class="text-success">Soluci&oacute;n 1</p>
+                    <p>Crear una entidad hija a la que se le agregaran las validaciones (ClassMetadata).</p>
+                    <a class="btn btn-primary" href="{{ path('validaciones_caso1_sol1') }}" >Probar</a>
+                    <hr/>
+                    <div>
+                        <small>
+                            <a class="btn btn-default btn-sm" href="https://symfony.com/doc/2.8/components/validator/metadata.html" target="_blanck">Class Metadata</a>
+                            <a class="btn btn-default btn-sm" href="https://symfony.com/doc/2.8/reference/constraints/Callback.html" target="_blanck">Callback Validator</a>
+                            <a class="btn btn-default btn-sm" href="http://api.symfony.com/2.8/Symfony/Component/Validator/Validator/ValidatorInterface.html" target="_blanck">Validator Interface</a>
+                        </small>
+
+
+                        <small><a href=""></a></small>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
