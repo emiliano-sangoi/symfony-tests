@@ -1,7 +1,14 @@
+permisos:
+    resource: "@PermisosBundle/Resources/config/routing.yml"
+    prefix:   /permisos
+
+app:
+    resource: '@AppBundle/Resources/config/routing.yml'
+
+forms:
+    resource: "@FormsBundle/Resources/config/routing.yml"
+    prefix:   /forms
+
 validaciones:
     resource: "@ValidacionesBundle/Resources/config/routing.yml"
     prefix:   /validaciones
-
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation

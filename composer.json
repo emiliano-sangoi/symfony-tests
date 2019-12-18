@@ -5,7 +5,9 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "ValidacionesBundle\\": "src/ValidacionesBundle"
+            "ValidacionesBundle\\": "src/ValidacionesBundle",
+            "FormsBundle\\": "src/FormsBundle",
+            "PermisosBundle\\": "src/PermisosBundle"
         },
         "classmap": [
             "app/AppKernel.php",

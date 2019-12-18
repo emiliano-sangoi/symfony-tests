@@ -1,0 +1,3 @@
+permisos_homepage:
+    path:     /
+    defaults: { _controller: PermisosBundle:Default:index }
