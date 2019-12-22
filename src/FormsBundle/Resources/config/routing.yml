@@ -1,35 +1,11 @@
+forms_ejemplo1:
+    resource: "@FormsBundle/Resources/config/routing/ejemplo1.yml"
+    prefix:   /ejemplo1
+
+forms_ejemplo2:
+    resource: "@FormsBundle/Resources/config/routing/ejemplo2.yml"
+    prefix:   /ejemplo2
+
 forms_homepage:
     path:     /
     defaults: { _controller: FormsBundle:Default:index }
-
-
-forms_ej1_index:
-    path:     /ejemplo1/
-    defaults: { _controller: FormsBundle:Ejemplo1\Person:index }
-    methods:  GET
-
-forms_ej1_new_person:
-    path:     /ejemplo1/new-person
-    defaults: { _controller: FormsBundle:Ejemplo1\Person:new }
-    methods:  [GET,POST]
-
-forms_ej1_show_person:
-    path:     /ejemplo1/{id}/show-person
-    defaults: { _controller: FormsBundle:Ejemplo1\Person:show }
-    methods:  [GET]
-
-forms_ej1_edit_person:
-    path:     /ejemplo1/{id}/edit-person
-    defaults: { _controller: FormsBundle:Ejemplo1\Person:edit }
-    methods:  [GET, POST]
-
-forms_ej1_delete_person:
-    path:     /ejemplo1/{id}/delete-person
-    defaults: { _controller: FormsBundle:Ejemplo1\Person:delete }
-    methods:  [DELETE]
-
-# AppBundle/Resources/config/routing/person.yml
-forms_ej1_person_list_neighborhoods:
-    path:     /ejemplo1/get-barrios-por-ciuidad
-    defaults: { _controller: FormsBundle:Ejemplo1\Person:getBarriosPorCiudad }
-    methods:  GET

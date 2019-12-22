@@ -1,0 +1,32 @@
+# ===========================================================================================
+# Ejemplo 1
+forms_ej1_index:
+    path:     /
+    defaults: { _controller: FormsBundle:Ejemplo1\Person:index }
+    methods:  GET
+
+forms_ej1_new_person:
+    path:     /new-person
+    defaults: { _controller: FormsBundle:Ejemplo1\Person:new }
+    methods:  [GET,POST]
+
+forms_ej1_show_person:
+    path:     /{id}/show-person
+    defaults: { _controller: FormsBundle:Ejemplo1\Person:show }
+    methods:  [GET]
+
+forms_ej1_edit_person:
+    path:     /{id}/edit-person
+    defaults: { _controller: FormsBundle:Ejemplo1\Person:edit }
+    methods:  [GET, POST]
+
+forms_ej1_delete_person:
+    path:     /{id}/delete-person
+    defaults: { _controller: FormsBundle:Ejemplo1\Person:delete }
+    methods:  [DELETE]
+
+# AppBundle/Resources/config/routing/person.yml
+forms_ej1_person_list_neighborhoods:
+    path:     /get-barrios-por-ciuidad
+    defaults: { _controller: FormsBundle:Ejemplo1\Person:getBarriosPorCiudad }
+    methods:  GET

@@ -5,14 +5,27 @@
 {% block body %}
     <h1>Formularios</h1>
     <hr/>
-    <h2>Ejemplos</h2>
-    <ul>
-      <li>
-        <a href="{{ path('forms_ej1_index') }}">
-          Dependant select básico
+      <div class="well" style="padding: 1em;">
+        <h3>Dependant select básico</h3>
+        <br/>
+        <p class="lead">
+          Formulario para crear una persona con un select dependiente de otro.
+        </p>
+        <a class="btn btn-primary" href="{{ path('forms_ej1_index') }}">
+          Probar
         </a>
-      </li>
-    </ul>
+      </div>
+      <div class="well" style="padding: 1em;">
+        <h3>Dependant select: Provincia - Departamento - Localidad</h3>
+        <br/>
+        <p class="lead">
+          Formulario en donde se crea un domicilio que posee una localida, pero para definir la localidad primero tiene que definir la provincia y el departamento para filtrar correctamente.
+        </p>
+        <a class="btn btn-primary" href="{{ path('forms_ejemplo2_index') }}">
+          Probar
+        </a>
+      </div>
+
 
 {% endblock %}
 

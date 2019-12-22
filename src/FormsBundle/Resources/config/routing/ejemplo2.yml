@@ -1,0 +1,27 @@
+# ===========================================================================================
+# Ejemplo 2
+
+forms_ejemplo2_index:
+    path:     /
+    defaults: { _controller: "FormsBundle:Ejemplo2\Domicilio:index" }
+    methods:  GET
+
+forms_ejemplo2_show:
+    path:     /{id}/show
+    defaults: { _controller: "FormsBundle:Ejemplo2\Domicilio:show" }
+    methods:  GET
+
+forms_ejemplo2_new:
+    path:     /new
+    defaults: { _controller: "FormsBundle:Ejemplo2\Domicilio:new" }
+    methods:  [GET, POST]
+
+forms_ejemplo2_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FormsBundle:Ejemplo2\Domicilio:edit" }
+    methods:  [GET, POST]
+
+forms_ejemplo2_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FormsBundle:Ejemplo2\Domicilio:delete" }
+    methods:  DELETE

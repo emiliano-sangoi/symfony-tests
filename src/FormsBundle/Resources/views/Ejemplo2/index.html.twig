@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>
+        Ejemplo 2: Listado de domicilios
+    </h1>
+    <hr/>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Calle</th>
+                <th>Numero</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for domicilio in domicilios %}
+                <tr>
+                    <td>
+                        <a href="{{ path('forms_ejemplo2_show', { 'id': domicilio.id }) }}">{{ domicilio.id }}</a>
+                    </td>
+                    <td>{{ domicilio.calle }}</td>
+                    <td>{{ domicilio.numero }}</td>
+                    <td>
+                        <a class="btn btn-default btn-xs" href="{{ path('forms_ejemplo2_show', { 'id': domicilio.id }) }}">show</a>
+                        <a class="btn btn-default btn-xs" href="{{ path('forms_ejemplo2_edit', { 'id': domicilio.id }) }}">edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('forms_ejemplo2_new') }}">Create a new domicilio</a>
+        </li>
+    </ul>
+{% endblock %}
