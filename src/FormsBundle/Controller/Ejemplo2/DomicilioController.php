@@ -2,6 +2,7 @@
 
 namespace FormsBundle\Controller\Ejemplo2;
 
+ini_set('display_errors',1);
 use FormsBundle\Entity\Ejemplo2\Domicilio;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

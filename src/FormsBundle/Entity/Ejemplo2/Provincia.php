@@ -1,6 +1,6 @@
 <?php
 
-namespace FormsBundle\Entity;
+namespace FormsBundle\Entity\Ejemplo2;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -8,8 +8,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Provincia
  *
- * @ORM\Table(name="provincia")
- * @ORM\Entity(repositoryClass="FormsBundle\Repository\ProvinciaRepository")
+ * @ORM\Table(name="forms_ej2_provincia")
+ * @ORM\Entity
  */
 
 class Provincia
@@ -30,13 +30,6 @@ class Provincia
      * @Assert\NotBlank(message="Indicar el nombre de la Provincia.")
      */
     private $nombre;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="abreviatura", type="string", length=150, nullable=true, unique=true)
-     */
-    private $abreviatura;
 
     /**
      * @ORM\OneToMany(targetEntity="Departamento", mappedBy="provincia")
@@ -79,37 +72,13 @@ class Provincia
     }
 
     /**
-     * Set abreviatura
-     *
-     * @param string $abreviatura
-     *
-     * @return Provincia
-     */
-    public function setAbreviatura($abreviatura)
-    {
-        $this->abreviatura = $abreviatura;
-
-        return $this;
-    }
-
-    /**
-     * Get abreviaturaProvincia
-     *
-     * @return string
-     */
-    public function getAbreviatura()
-    {
-        return $this->abreviatura;
-    }
-
-    /**
      * Add departamento
      *
-     * @param FormsBundle\Entity\Departamento $departamento
+     * @param FormsBundle\Entity\Ejemplo2\Departamento $departamento
      *
      * @return Provincia
      */
-    public function addDepartamento(FormsBundle\Entity\Departamento $departamento)
+    public function addDepartamento(FormsBundle\Entity\Ejemplo2\Departamento $departamento)
     {
         $this->departamentos[] = $departamento;
 
@@ -119,9 +88,9 @@ class Provincia
     /**
      * Remove departamento
      *
-     * @param FormsBundle\Entity\Departamento $departamento
+     * @param FormsBundle\Entity\Ejemplo2\Departamento $departamento
      */
-    public function removeDepartamento(FormsBundle\Entity\Departamento $departamento)
+    public function removeDepartamento(FormsBundle\Entity\Ejemplo2\Departamento $departamento)
     {
         $this->departamentos->removeElement($departamento);
     }

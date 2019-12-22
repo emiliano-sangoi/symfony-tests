@@ -6,20 +6,22 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use FormsBundle\Entity\Ejemplo2\Localidad;
 
-class DomicilioType extends AbstractType
+class LocalidadType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+      //dump($options);exit;
         $builder
-          ->add('calle')
-          ->add('numero')
-          ->add('localidad', LocalidadType::class);
+      //    ->add('departamento', DepartamentoType::class, array(
+            //'by_reference' => true
+      //    ));
+          ->add('nombre');
     }
-
 
     /**
      * {@inheritdoc}
@@ -27,19 +29,15 @@ class DomicilioType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FormsBundle\Entity\Ejemplo2\Domicilio',
+            //'data_class' => Localidad::class,
+            'class' => Localidad::class,
             'compound' => true,
-            'by_reference' => true
+            'empty_data' => null
         ));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'formsbundle_ejemplo2_domicilio';
+    public function getParent(){
+      return EntityType::class;
     }
-
 
 }

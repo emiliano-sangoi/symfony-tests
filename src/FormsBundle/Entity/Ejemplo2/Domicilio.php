@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Domicilio
  *
- * @ORM\Table(name="ejemplo2_domicilio")
+ * @ORM\Table(name="forms_ej2_domicilio")
  * @ORM\Entity(repositoryClass="FormsBundle\Repository\Ejemplo2\DomicilioRepository")
  */
 class Domicilio
@@ -35,11 +35,21 @@ class Domicilio
      */
     private $numero;
 
+    /**
+     * @var \FormsBundle\Entity\Ejemplo2\Localidad
+     *
+     * @ORM\ManyToOne(targetEntity="FormsBundle\Entity\Ejemplo2\Localidad")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="localidad_id", referencedColumnName="id")
+     * })
+     */
+    private $localidad;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +72,7 @@ class Domicilio
     /**
      * Get calle
      *
-     * @return string 
+     * @return string
      */
     public function getCalle()
     {
@@ -85,10 +95,33 @@ class Domicilio
     /**
      * Get numero
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumero()
     {
         return $this->numero;
+    }
+
+    /**
+     * Set localidad
+     *
+     * @param \FormsBundle\Entity\Ejemplo2\Localidad $localidad
+     * @return Domicilio
+     */
+    public function setLocalidad(\FormsBundle\Entity\Ejemplo2\Localidad $localidad = null)
+    {
+        $this->localidad = $localidad;
+
+        return $this;
+    }
+
+    /**
+     * Get localidad
+     *
+     * @return \FormsBundle\Entity\Ejemplo2\Localidad 
+     */
+    public function getLocalidad()
+    {
+        return $this->localidad;
     }
 }

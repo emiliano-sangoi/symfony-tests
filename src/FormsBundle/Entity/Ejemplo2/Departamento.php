@@ -1,6 +1,6 @@
 <?php
 
-namespace FormsBundle\Entity;
+namespace FormsBundle\Entity\Ejemplo2;
 
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Departamento
  *
- * @ORM\Table(name="departamento")
- * @ORM\Entity(repositoryClass="FormsBundle\Repository\DepartamentoRepository")
+ * @ORM\Table(name="forms_ej2_departamento")
+ * @ORM\Entity
  */
 
 class Departamento
@@ -25,13 +25,6 @@ class Departamento
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="codigo", type="string", length=2, unique=false)
-     */
-    protected $codigo;
 
     /**
      * @var string
@@ -61,30 +54,6 @@ class Departamento
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set codigo
-     *
-     * @param string $codigo
-     *
-     * @return Departamento
-     */
-    public function setCodigo($codigo)
-    {
-        $this->codigo = $codigo;
-
-        return $this;
-    }
-
-    /**
-     * Get codigo
-     *
-     * @return string
-     */
-    public function getCodigo()
-    {
-        return $this->codigo;
     }
 
     /**
@@ -121,11 +90,11 @@ class Departamento
     /**
      * Set provincia
      *
-     * @param FormsBundle\Entity\Provincia $provincia
+     * @param Provincia $provincia
      *
      * @return Departamento
      */
-    public function setProvincia(FormsBundle\Entity\Provincia $provincia = null)
+    public function setProvincia(Provincia $provincia = null)
     {
         $this->provincia = $provincia;
 
@@ -135,7 +104,7 @@ class Departamento
     /**
      * Get provincia
      *
-     * @return FormsBundle\Entity\Provincia
+     * @return Provincia
      */
     public function getProvincia()
     {
@@ -145,11 +114,11 @@ class Departamento
     /**
      * Add localidade
      *
-     * @param FormsBundle\Entity\Localidad $localidades
+     * @param Localidad $localidades
      *
      * @return Departamento
      */
-    public function addLocalidade(FormsBundle\Entity\Localidad $localidades)
+    public function addLocalidade(Localidad $localidades)
     {
         $this->localidades[] = $localidades;
 
@@ -159,9 +128,9 @@ class Departamento
     /**
      * Remove localidade
      *
-     * @param FormsBundle\Entity\Localidad $localidades
+     * @param Localidad $localidades
      */
-    public function removeLocalidade(FormsBundle\Entity\Localidad $localidades)
+    public function removeLocalidade(Localidad $localidades)
     {
         $this->localidades->removeElement($localidades);
     }
