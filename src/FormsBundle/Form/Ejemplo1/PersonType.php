@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form;
+namespace FormsBundle\Form\Ejemplo1;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityManagerInterface;
 
 // Your Entity
-use AppBundle\Entity\City;
+use FormsBundle\Entity\Ejemplo1\City;
 
 class PersonType extends AbstractType
 {
@@ -52,7 +52,7 @@ class PersonType extends AbstractType
             'required' => true,
             'data' => $city,
             'placeholder' => 'Select a City...',
-            'class' => 'AppBundle:City'
+            'class' => 'FormsBundle:Ejemplo1\City'
         ));
 
         // Neighborhoods empty, unless there is a selected City (Edit View)
@@ -61,7 +61,7 @@ class PersonType extends AbstractType
         // If there is a city stored in the Person entity, load the neighborhoods of it
         if ($city) {
             // Fetch Neighborhoods of the City if there's a selected city
-            $repoNeighborhood = $this->em->getRepository('AppBundle:Neighborhood');
+            $repoNeighborhood = $this->em->getRepository('FormsBundle:Ejemplo1\Neighborhood');
 
             $neighborhoods = $repoNeighborhood->createQueryBuilder("q")
                 ->where("q.city = :cityid")
@@ -74,7 +74,7 @@ class PersonType extends AbstractType
         $form->add('neighborhood', EntityType::class, array(
             'required' => true,
             'placeholder' => 'Select a City first ...',
-            'class' => 'AppBundle:Neighborhood',
+            'class' => 'FormsBundle:Ejemplo1\Neighborhood',
             'choices' => $neighborhoods
         ));
     }
@@ -84,7 +84,7 @@ class PersonType extends AbstractType
         $data = $event->getData();
 
         // Search for selected City and convert it into an Entity
-        $city = $this->em->getRepository('AppBundle:City')->find($data['city']);
+        $city = $this->em->getRepository('FormsBundle:Ejemplo1\City')->find($data['city']);
 
         $this->addElements($form, $city);
     }
@@ -105,7 +105,7 @@ class PersonType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Person'
+            'data_class' => 'FormsBundle\Entity\Ejemplo1\Person'
         ));
     }
 

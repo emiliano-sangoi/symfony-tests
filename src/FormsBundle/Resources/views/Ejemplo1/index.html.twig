@@ -15,16 +15,16 @@
         <tbody>
         {% for person in people %}
             <tr>
-                <td><a href="{{ path('person_show', { 'id': person.id }) }}">{{ person.id }}</a></td>
+                <td><a href="{{ path('forms_ej1_show_person', { 'id': person.id }) }}">{{ person.id }}</a></td>
                 <td>{{ person.name }}</td>
                 <td>{{ person.lastName }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('person_show', { 'id': person.id }) }}">show</a>
+                            <a href="{{ path('forms_ej1_show_person', { 'id': person.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('person_edit', { 'id': person.id }) }}">edit</a>
+                            <a href="{{ path('forms_ej1_edit_person', { 'id': person.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('person_new') }}">Create a new person</a>
+            <a href="{{ path('forms_ej1_new_person') }}">Create a new person</a>
         </li>
     </ul>
 {% endblock %}

@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace FormsBundle\Controller\Ejemplo1;
 
-use AppBundle\Entity\Person;
+use FormsBundle\Entity\Ejemplo1\Person;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -20,17 +20,22 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class PersonController extends Controller
 {
 
+  public function depSelectBasicoAction()
+  {
+      return $this->render('FormsBundle:Default:dependant-select-basico.html.twig');
+  }
+
   /**
    * Returns a JSON string with the neighborhoods of the City with the providen id.
    *
    * @param Request $request
    * @return JsonResponse
    */
-  public function listNeighborhoodsOfCityAction(Request $request)
+  public function getBarriosPorCiudadAction(Request $request)
   {
       // Get Entity manager and repository
       $em = $this->getDoctrine()->getManager();
-      $neighborhoodsRepository = $em->getRepository("AppBundle:Neighborhood");
+      $neighborhoodsRepository = $em->getRepository("FormsBundle:Ejemplo1\Neighborhood");
 
       // Search the neighborhoods that belongs to the city with the given id as GET parameter "cityid"
       $neighborhoods = $neighborhoodsRepository->createQueryBuilder("q")
@@ -60,16 +65,14 @@ class PersonController extends Controller
     /**
      * Lists all person entities.
      *
-     * @Route("/", name="person_index")
-     * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $people = $em->getRepository('AppBundle:Person')->findAll();
+        $people = $em->getRepository('FormsBundle:Ejemplo1\Person')->findAll();
 
-        return $this->render('person/index.html.twig', array(
+        return $this->render('FormsBundle:Ejemplo1:index.html.twig', array(
             'people' => $people,
         ));
     }
@@ -77,13 +80,11 @@ class PersonController extends Controller
     /**
      * Creates a new person entity.
      *
-     * @Route("/new", name="person_new")
-     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
         $person = new Person();
-        $form = $this->createForm('AppBundle\Form\PersonType', $person);
+        $form = $this->createForm('FormsBundle\Form\Ejemplo1\PersonType', $person);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -91,10 +92,10 @@ class PersonController extends Controller
             $em->persist($person);
             $em->flush();
 
-            return $this->redirectToRoute('person_show', array('id' => $person->getId()));
+            return $this->redirectToRoute('forms_ej1_show_person', array('id' => $person->getId()));
         }
 
-        return $this->render('person/new.html.twig', array(
+        return $this->render('FormsBundle:Ejemplo1:new.html.twig', array(
             'person' => $person,
             'form' => $form->createView(),
         ));
@@ -103,14 +104,12 @@ class PersonController extends Controller
     /**
      * Finds and displays a person entity.
      *
-     * @Route("/{id}", name="person_show")
-     * @Method("GET")
      */
     public function showAction(Person $person)
     {
         $deleteForm = $this->createDeleteForm($person);
 
-        return $this->render('person/show.html.twig', array(
+        return $this->render('FormsBundle:Ejemplo1:show.html.twig', array(
             'person' => $person,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -119,13 +118,11 @@ class PersonController extends Controller
     /**
      * Displays a form to edit an existing person entity.
      *
-     * @Route("/{id}/edit", name="person_edit")
-     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Person $person)
     {
         $deleteForm = $this->createDeleteForm($person);
-        $editForm = $this->createForm('AppBundle\Form\PersonType', $person);
+        $editForm = $this->createForm('FormsBundle\Form\Ejemplo1\PersonType', $person);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -134,7 +131,7 @@ class PersonController extends Controller
             return $this->redirectToRoute('person_edit', array('id' => $person->getId()));
         }
 
-        return $this->render('person/edit.html.twig', array(
+        return $this->render('FormsBundle:Ejemplo1:edit.html.twig', array(
             'person' => $person,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
