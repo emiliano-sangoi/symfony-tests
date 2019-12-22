@@ -128,7 +128,7 @@ class PersonController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('person_edit', array('id' => $person->getId()));
+            return $this->redirectToRoute('forms_ej1_edit_person', array('id' => $person->getId()));
         }
 
         return $this->render('FormsBundle:Ejemplo1:edit.html.twig', array(
@@ -141,8 +141,6 @@ class PersonController extends Controller
     /**
      * Deletes a person entity.
      *
-     * @Route("/{id}", name="person_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, Person $person)
     {
@@ -155,7 +153,7 @@ class PersonController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('person_index');
+        return $this->redirectToRoute('forms_ej1_index');
     }
 
     /**
@@ -168,7 +166,7 @@ class PersonController extends Controller
     private function createDeleteForm(Person $person)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('person_delete', array('id' => $person->getId())))
+            ->setAction($this->generateUrl('forms_ej1_delete_person', array('id' => $person->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
