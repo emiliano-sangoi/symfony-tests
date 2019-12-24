@@ -19,17 +19,26 @@ class DomicilioType extends AbstractType
           ->add('numero')
           ->add('localidad', EntityType::class, array(
               'class' => \FormsBundle\Entity\Ejemplo2\Localidad::class,
-              'placeholder' => 'Seleccione una localidad'
+              'placeholder' => 'Seleccione una localidad',
+              'attr' => array(
+                  'class' => 'select-localidad'
+              )
           ))
           ->add('departamento', EntityType::class, array(   
               'class' => \FormsBundle\Entity\Ejemplo2\Departamento::class,
               'mapped' => false,
-              'placeholder' => 'Seleccione un departamento'
+              'placeholder' => 'Seleccione un departamento',
+              'attr' => array(
+                  'class' => 'select-departamento'
+              )
           ))
           ->add('provincia', EntityType::class, array(   
               'class' => \FormsBundle\Entity\Ejemplo2\Provincia::class,
               'mapped' => false,
-              'placeholder' => 'Seleccione una provincia'
+              'placeholder' => 'Seleccione una provincia',
+              'attr' => array(
+                  'class' => 'select-provincia'
+              )
           ));
     }
 

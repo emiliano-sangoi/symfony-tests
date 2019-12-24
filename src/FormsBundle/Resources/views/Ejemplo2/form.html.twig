@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+    {{ form_row(form.calle) }}
+    <br/>
+    {{ form_row(form.numero) }}
+    <br/>
+    {{ form_row(form.provincia) }}
+    <br/>
+    {{ form_row(form.departamento) }}
+    <br/>
+    {{ form_row(form.localidad) }}
+    <br/>
+    
+    {% block botones %}
+        <a class="btn btn-default" href="{{ path('forms_ejemplo2_index') }}">Back to the list</a>
+    {% endblock %}
+{{ form_end(form) }}

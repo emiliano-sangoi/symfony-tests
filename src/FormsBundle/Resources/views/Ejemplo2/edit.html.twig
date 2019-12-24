@@ -1,21 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Domicilio edit</h1>
+    <h1>Editar domicilio</h1>
+    <hr/>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+    {% embed '@Forms/Ejemplo2/form.html.twig' with { 'form': edit_form } %}
 
-    <ul>
-        <li>
-            <a href="{{ path('forms_ejemplo2_index') }}">Back to the list</a>
-        </li>
-        <li>
+        {% block botones %}
+            <div>
+                {{ parent() }}
+                <input class="btn btn-warning" type="submit" value="Editar" />
+            </div>
+            <br/>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        {% endblock %}
+
+
+
+    {% endembed %} 
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/forms/js/ejemplo2.js') }}"></script>
+
 {% endblock %}

@@ -1,16 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Domicilio creation</h1>
+    <h1>Nuevo domicilio</h1>
+    <hr/>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    {% embed '@Forms/Ejemplo2/form.html.twig' %}
+        
+        {% block botones %}
+            {{ parent() }}
+            <input class="btn btn-primary" type="submit" value="Create" />
+        {% endblock %}
+        
+    {% endembed %}    
+{% endblock %}
 
-    <ul>
-        <li>
-            <a href="{{ path('forms_ejemplo2_index') }}">Back to the list</a>
-        </li>
-    </ul>
+{% block javascripts %}
+    <script src="{{ asset('bundles/forms/js/ejemplo2.js') }}"></script>
+    
 {% endblock %}
