@@ -4,6 +4,7 @@ namespace FormsBundle\Controller\Ejemplo2;
 
 ini_set('display_errors',1);
 use FormsBundle\Entity\Ejemplo2\Domicilio;
+use FormsBundle\Entity\Ejemplo2\Localidad;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -35,10 +36,13 @@ class DomicilioController extends Controller
     public function newAction(Request $request)
     {
         $domicilio = new Domicilio();
+      //  $localidad = new Localidad();
+        //$domicilio->setLocalidad($localidad);
         $form = $this->createForm('FormsBundle\Form\Ejemplo2\DomicilioType', $domicilio);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            dump($domicilio);exit;
             $em = $this->getDoctrine()->getManager();
             $em->persist($domicilio);
             $em->flush();

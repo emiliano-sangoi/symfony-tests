@@ -31,7 +31,7 @@ class Localidad
     protected $nombre;
 
     /**
-     * @ORM\ManyToOne(targetEntity="FormsBundle\Entity\Ejemplo2\Departamento", inversedBy="localidades")
+     * @ORM\ManyToOne(targetEntity="FormsBundle\Entity\Ejemplo2\Departamento", inversedBy="localidades", fetch="EAGER")
      * @ORM\JoinColumn(name="departamento_id", referencedColumnName="id")
      */
     protected $departamento;
@@ -74,11 +74,11 @@ class Localidad
     /**
      * Set departamento
      *
-     * @param FormsBundle\Entity\Ejemplo2\Departamento $departamento
+     * @param \FormsBundle\Entity\Ejemplo2\Departamento $departamento
      *
      * @return Localidad
      */
-    public function setDepartamento(FormsBundle\Entity\Ejemplo2\Departamento $departamento = null)
+    public function setDepartamento(\FormsBundle\Entity\Ejemplo2\Departamento $departamento = null)
     {
         $this->departamento = $departamento;
 
@@ -88,7 +88,7 @@ class Localidad
     /**
      * Get departamento
      *
-     * @return FormsBundle\Entity\Ejemplo2\Departamento
+     * @return \FormsBundle\Entity\Ejemplo2\Departamento
      */
     public function getDepartamento()
     {

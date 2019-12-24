@@ -35,7 +35,7 @@ class Departamento
     protected $nombre;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Provincia", inversedBy="departamentos")
+     * @ORM\ManyToOne(targetEntity="Provincia", inversedBy="departamentos",fetch="EAGER")
      * @ORM\JoinColumn(name="provincia_id", referencedColumnName="id")
      */
     protected $provincia;

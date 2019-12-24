@@ -19,21 +19,21 @@ class Domicilio
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="calle", type="string", length=255)
      */
-    private $calle;
+    protected $calle;
 
     /**
      * @var int
      *
      * @ORM\Column(name="numero", type="integer")
      */
-    private $numero;
+    protected $numero;
 
     /**
      * @var \FormsBundle\Entity\Ejemplo2\Localidad
@@ -43,7 +43,7 @@ class Domicilio
      *   @ORM\JoinColumn(name="localidad_id", referencedColumnName="id")
      * })
      */
-    private $localidad;
+    protected $localidad;
 
 
     /**

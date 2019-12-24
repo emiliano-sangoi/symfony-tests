@@ -21,7 +21,7 @@ class Provincia
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO"))
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -29,12 +29,12 @@ class Provincia
      * @ORM\Column(name="nombre", type="string", length=255, unique=true, nullable=false)
      * @Assert\NotBlank(message="Indicar el nombre de la Provincia.")
      */
-    private $nombre;
+    protected $nombre;
 
     /**
      * @ORM\OneToMany(targetEntity="Departamento", mappedBy="provincia")
      */
-    private $departamentos;
+    protected $departamentos;
 
 
     /**
@@ -78,7 +78,7 @@ class Provincia
      *
      * @return Provincia
      */
-    public function addDepartamento(FormsBundle\Entity\Ejemplo2\Departamento $departamento)
+    public function addDepartamento(\FormsBundle\Entity\Ejemplo2\Departamento $departamento)
     {
         $this->departamentos[] = $departamento;
 
@@ -90,7 +90,7 @@ class Provincia
      *
      * @param FormsBundle\Entity\Ejemplo2\Departamento $departamento
      */
-    public function removeDepartamento(FormsBundle\Entity\Ejemplo2\Departamento $departamento)
+    public function removeDepartamento(\FormsBundle\Entity\Ejemplo2\Departamento $departamento)
     {
         $this->departamentos->removeElement($departamento);
     }

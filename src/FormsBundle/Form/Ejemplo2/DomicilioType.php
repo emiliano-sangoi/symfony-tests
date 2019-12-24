@@ -17,7 +17,20 @@ class DomicilioType extends AbstractType
         $builder
           ->add('calle')
           ->add('numero')
-          ->add('localidad', LocalidadType::class);
+          ->add('localidad', EntityType::class, array(
+              'class' => \FormsBundle\Entity\Ejemplo2\Localidad::class,
+              'placeholder' => 'Seleccione una localidad'
+          ))
+          ->add('departamento', EntityType::class, array(   
+              'class' => \FormsBundle\Entity\Ejemplo2\Departamento::class,
+              'mapped' => false,
+              'placeholder' => 'Seleccione un departamento'
+          ))
+          ->add('provincia', EntityType::class, array(   
+              'class' => \FormsBundle\Entity\Ejemplo2\Provincia::class,
+              'mapped' => false,
+              'placeholder' => 'Seleccione una provincia'
+          ));
     }
 
 
@@ -28,17 +41,9 @@ class DomicilioType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'FormsBundle\Entity\Ejemplo2\Domicilio',
-            'compound' => true,
-            'by_reference' => true
+            //'compound' => true,
+            //'by_reference' => true
         ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'formsbundle_ejemplo2_domicilio';
     }
 
 
